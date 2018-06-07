@@ -1,6 +1,6 @@
 # User Instructions 
 
-### Full instructions for running the tutorials at Cork AI's first meetup
+### Full instructions for running the ML/Deep Learning tutorials hosted by fourTheorem Ltd 
 
 #### 1: AMAZON WEB SERVICES (AWS):  
 **Redeeming AWS credits:**  
@@ -11,9 +11,9 @@ Redeem your AWS credit using the code on the voucher provided at the workshop
 
 **Launching AWS virtual machine:**
  - Go to "Services" and under the "compute" heading, choose "EC2"
- - Set "region" in top-right corner to be Ireland
+ - Set "region" in top-right corner to be "US East (N. Virginia)"
  - Click on "Launch Instance"
- - Scroll down and select "Deep Learning AMI (Ubuntu) Version 1.0" AMI ID: ami-1812bb61
+ - Scroll down and select "Deep Learning AMI (Ubuntu) Version 10.0 - ami-6d720012"
  - Scroll down and select "GPU compute ... p2.xlarge"
  - Click "Review and Launch"
  - Click "Launch"
@@ -37,9 +37,9 @@ Now you should be logged into the machine and see a command-line prompt $.
 (slides on deep-learning available at http://slides.com/keelinm/deeplearning1)  
 **Folder setup**
  Type the following commands to get setup for running the code:
- - ```mkdir cork_ai```   *(make a new folder to work in)*
- - ```cd cork_ai```         *(switch to the newly created folder)*
- - ```git clone https://github.com/CorkAI/Meetup1.git```  *(this will make a Meetup1 folder with all the code/data we need)*
+ - ```mkdir ft_ml_workshop```   *(make a new folder to work in)*
+ - ```cd ft_ml_workshop```         *(switch to the newly created folder)*
+ - ```git clone https://github.com/fourTheorem/Meetup1.git```  *(this will make a Meetup1 folder with all the code/data we need)*
  - ```cd Meetup1```     *(switch to the Meetup1 folder)*
  - If you want to have a look at the code before you run it, type ```vim mnist_softmax.py```
     - (Type Esc then : then q! and hit enter to exit the file)
@@ -66,24 +66,22 @@ View a few of the failed/successful examples using the command below and see if 
 To download and view the images (linux, mac, cygwin) open a new shell on your local machine and create a fresh empty directory. Then copy the output images to your local system:
  - ```mkdir output_images```
  - ```cd output_images```
- - ```scp -i /path/my-key-pair.pem ubuntu@[copied-DNS]:/home/ubuntu/cork_ai/Meetup1/output_images/* .```
+ - ```scp -i /path/my-key-pair.pem ubuntu@[copied-DNS]:/home/ubuntu/ft_ml_workshop/Meetup1/output_images/* .```
  - View the images using Finder / Explorer or your preferred image viewer.
 
 To download and view the images using putty on Windows:
  - Open a command line prompt (cmd)
- - type ```pscp -i C:\path\my-key-pair.ppk ubuntu@[copied-DNS]:/home/ubuntu/cork_ai/Meetup1/output_images/* c:\[my_local_directory]```
+ - type ```pscp -i C:\path\my-key-pair.ppk ubuntu@[copied-DNS]:/home/ubuntu/ft_ml_workshop/Meetup1/output_images/* c:\[my_local_directory]```
  - View the images using your preferred image viewer
 
-*Additional Exercise 2:* Although the MNIST dataset has been a computer vision benchmark for a number of years, there have been complaints that the task is too simple to serve as a realistic performance benchmark for modern systems. In response to this Zalando created a drop-in replacement for MNIST, known as Fashion-MNIST, where each image represents an item of clothing, rather than a digit.  See https://github.com/zalandoresearch/fashion-mnist  .  The labels (classes) to be assigned in this case are : 0=T-shirt/top, 1=Trouser, 2=Pullover, 3=Dress, 4=Coat, 5=Sandal, 6=Shirt, 7=Sneaker, 8=Bag, 9=Ankle boot.   The fashion data is already on your machine, pulled from our github (see folder data/fashion).  To re-train and test the network on the Fasion-MNIST set, type the following commands:
+*Additional Exercise 2:* Although the MNIST dataset has been a computer vision benchmark for a number of years, there have been complaints that the task is too simple to serve as a realistic performance benchmark for modern systems. In response to this, Zalando created a drop-in replacement for MNIST, known as Fashion-MNIST, where each image represents an item of clothing, rather than a digit.  See https://github.com/zalandoresearch/fashion-mnist  .  The labels (classes) to be assigned in this case are : 0=T-shirt/top, 1=Trouser, 2=Pullover, 3=Dress, 4=Coat, 5=Sandal, 6=Shirt, 7=Sneaker, 8=Bag, 9=Ankle boot.   The fashion data is already on your machine, pulled from our github (see folder data/fashion).  To re-train and test the network on the Fasion-MNIST set, type the following commands:
  - ```python mnist_softmax.py --data_dir data/fashion --write_samples 1```
  - Number printed at the end is the accuracy of the network (varies ~0.70 to ~0.85)
  - Successful and failed examples are also written as in previous exercise, with prefix 'fashion' on filenames
  - use the scp command to download and inspect these images
 
-#### 3: Pizza and Beer Break  
-**Please refuel before the next session :-) **
 
-#### 4: Running second tutorial code
+#### 3: Running second tutorial code
 (Slides on convnets available at http://slides.com/keelinm/convnets)  
 The second tutorial will use a convolutional neural network to solve the same tasks as previously. The code and folder setup is ready for use.  We've added some code to store the trained model on disk, so that we only need to train one time, and for any further tests we can use the trained model stored on disk.
  - If you want to look at the code before you run it, type ```vim mnist_deep.py```
